@@ -78,14 +78,23 @@ Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
-# Generate studio table
-studio = Studio.new
-studio["name"] = "Warner Bros."
-
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+# Create and populate studio table
+studio = Studio.new
+studio["name"] = "Warner Bros."
+studio.save
+
+# Create and populate movie table
+movie_studio = Studio.find_by({"name" => "Warner Bros."})
+batman_begins = Movie.new
+batman_begins["title"] = "Batman Begins"
+batman_begins["year_released"] = 2005
+batman_begins["rated"] = "PG-13"
+batman_begins["studio_id"] = movie_studio["id"]
+batman_begins.save
 
 # Prints a header for the movies output
 puts "Movies"
