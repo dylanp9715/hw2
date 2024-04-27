@@ -77,7 +77,11 @@ Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
+
+#Studio(s)
 studio = Studio.new
+
+# Movies
 batman_begins = Movie.new
 the_dark_knight = Movie.new
 the_dark_knight_rises = Movie.new
@@ -86,12 +90,12 @@ the_dark_knight_rises = Movie.new
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-# Populate studio table
+# Populate studios table
 
 studio["name"] = "Warner Bros."
 studio.save
 
-# Populate movie table
+# Populate movies table
 movie_studio = Studio.find_by({"name" => "Warner Bros."})
 
 batman_begins["title"] = "Batman Begins"
@@ -111,6 +115,43 @@ the_dark_knight_rises["year_released"] = 2012
 the_dark_knight_rises["rated"] = "PG-13"
 the_dark_knight_rises["studio_id"] = movie_studio["id"]
 the_dark_knight_rises.save
+
+# Populate actors table
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+
+# Populate roles table
 
 # Prints a header for the movies output
 puts "Movies"
