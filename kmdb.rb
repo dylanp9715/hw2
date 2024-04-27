@@ -205,12 +205,6 @@ role.save
 
 role = Role.new
 role["movie_id"] = movie["id"]
-role["actor_id"] = actor2["id"]
-role["character_name"] = "Alfred"
-role.save
-
-role = Role.new
-role["movie_id"] = movie["id"]
 role["actor_id"] = actor3["id"]
 role["character_name"] = "Joker"
 role.save
@@ -219,6 +213,12 @@ role = Role.new
 role["movie_id"] = movie["id"]
 role["actor_id"] = actor4["id"]
 role["character_name"] = "Harvey Dent"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor2["id"]
+role["character_name"] = "Alfred"
 role.save
 
 role = Role.new
@@ -293,3 +293,11 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
+roles = Role.all
+
+for role in roles
+    title = Movie.find(role["movie_id"])["title"]
+    actor = Actor.find(role["actor_id"])["name"]
+    role = role["character_name"]
+    puts "#{title} #{actor} #{role}"
+end
