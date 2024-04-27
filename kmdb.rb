@@ -77,24 +77,40 @@ Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
+studio = Studio.new
+batman_begins = Movie.new
+the_dark_knight = Movie.new
+the_dark_knight_rises = Movie.new
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-# Create and populate studio table
-studio = Studio.new
+# Populate studio table
+
 studio["name"] = "Warner Bros."
 studio.save
 
-# Create and populate movie table
+# Populate movie table
 movie_studio = Studio.find_by({"name" => "Warner Bros."})
-batman_begins = Movie.new
+
 batman_begins["title"] = "Batman Begins"
 batman_begins["year_released"] = 2005
 batman_begins["rated"] = "PG-13"
 batman_begins["studio_id"] = movie_studio["id"]
 batman_begins.save
+
+the_dark_knight["title"] = "The Dark Knight"
+the_dark_knight["year_released"] = 2008
+the_dark_knight["rated"] = "PG-13"
+the_dark_knight["studio_id"] = movie_studio["id"]
+the_dark_knight.save
+
+the_dark_knight_rises["title"] = "The Dark Knight Rises"
+the_dark_knight_rises["year_released"] = 2012
+the_dark_knight_rises["rated"] = "PG-13"
+the_dark_knight_rises["studio_id"] = movie_studio["id"]
+the_dark_knight_rises.save
 
 # Prints a header for the movies output
 puts "Movies"
@@ -103,6 +119,17 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies = Movie.all
+
+for movie in movies
+    title = movie["title"]
+    year_released = movie["year_released"]
+    rated = movie["rated"]
+    studio = Studio.find(movie["studio_id"])["name"]
+    puts "#{title} #{year_released} #{rated} #{studio}"
+end
+
 
 # Prints a header for the cast output
 puts ""
