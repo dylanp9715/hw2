@@ -151,7 +151,43 @@ actor = Actor.new
 actor["name"] = "Anne Hathaway"
 actor.save
 
-# Populate roles table
+# Populate roles table for Batman Begins
+movie = Movie.find_by({"title" => "Batman Begins"})
+actor1 = Actor.find_by({"name" => "Christian Bale"})
+actor2 = Actor.find_by({"name" => "Michael Caine"})
+actor3 = Actor.find_by({"name" => "Liam Neeson"})
+actor4 = Actor.find_by({"name" => "Katie Holmes"})
+actor5 = Actor.find_by({"name" => "Gary Oldman"})
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor1["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor2["id"]
+role["character_name"] = "Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor3["id"]
+role["character_name"] = "Ra's Al Ghul"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor4["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor5["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
 
 # Prints a header for the movies output
 puts "Movies"
