@@ -189,6 +189,82 @@ role["actor_id"] = actor5["id"]
 role["character_name"] = "Commissioner Gordon"
 role.save
 
+# Populate roles table for The Dark Knight
+movie = Movie.find_by({"title" => "The Dark Knight"})
+actor1 = Actor.find_by({"name" => "Christian Bale"})
+actor2 = Actor.find_by({"name" => "Michael Caine"})
+actor3 = Actor.find_by({"name" => "Heath Ledger"})
+actor4 = Actor.find_by({"name" => "Aaron Eckhart"})
+actor5 = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor1["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor2["id"]
+role["character_name"] = "Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor3["id"]
+role["character_name"] = "Joker"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor4["id"]
+role["character_name"] = "Harvey Dent"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor5["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+# Populate roles table for The Dark Knight Rises
+movie = Movie.find_by({"title" => "The Dark Knight Rises"})
+actor1 = Actor.find_by({"name" => "Christian Bale"})
+actor2 = Actor.find_by({"name" => "Gary Oldman"})
+actor3 = Actor.find_by({"name" => "Tom Hardy"})
+actor4 = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+actor5 = Actor.find_by({"name" => "Anne Hathaway"})
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor1["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor2["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor3["id"]
+role["character_name"] = "Bane"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor4["id"]
+role["character_name"] = "John Blake"
+role.save
+
+role = Role.new
+role["movie_id"] = movie["id"]
+role["actor_id"] = actor5["id"]
+role["character_name"] = "Selina Kyle"
+role.save
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
@@ -216,3 +292,4 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
